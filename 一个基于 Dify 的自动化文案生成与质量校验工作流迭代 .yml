@@ -1,0 +1,909 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 2迭代
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.7.15@ca2b8f2599b87de968354f0e2ccbbc0d76bac5ebf275c3f0fbdae48881d74518
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: parameter-extractor
+      id: 1773281720379-source-1773281791887-target
+      selected: false
+      source: '1773281720379'
+      sourceHandle: source
+      target: '1773281791887'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: if-else
+      id: 1773281791887-source-1773282143907-target
+      selected: false
+      source: '1773281791887'
+      sourceHandle: source
+      target: '1773282143907'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: llm
+      id: 1773282478166-source-1773282596415-target
+      selected: false
+      source: '1773282478166'
+      sourceHandle: source
+      target: '1773282596415'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: list-operator
+      id: 1773282143907-false-1773282311195-target
+      selected: false
+      source: '1773282143907'
+      sourceHandle: 'false'
+      target: '1773282311195'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: list-operator
+      id: 1773282143907-false-1773282321906-target
+      selected: false
+      source: '1773282143907'
+      sourceHandle: 'false'
+      target: '1773282321906'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: list-operator
+        targetType: document-extractor
+      id: 1773282321906-source-1773282478166-target
+      selected: false
+      source: '1773282321906'
+      sourceHandle: source
+      target: '1773282478166'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: list-operator
+        targetType: llm
+      id: 1773282311195-source-1773282596415-target
+      selected: false
+      source: '1773282311195'
+      sourceHandle: source
+      target: '1773282596415'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: iteration
+      id: 1773282596415-source-1773476096676-target
+      source: '1773282596415'
+      sourceHandle: source
+      target: '1773476096676'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: iteration
+        targetType: template-transform
+      id: 1773476096676-source-1773299267586-target
+      source: '1773476096676'
+      sourceHandle: source
+      target: '1773299267586'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: end
+      id: 1773299267586-source-1773299312753-target
+      source: '1773299267586'
+      sourceHandle: source
+      target: '1773299312753'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1773476096676'
+        sourceType: iteration-start
+        targetType: llm
+      id: 1773476096676start-source-1773476298375-target
+      source: 1773476096676start
+      sourceHandle: source
+      target: '1773476298375'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1773476096676'
+        sourceType: llm
+        targetType: llm
+      id: 1773476298375-source-1773476381756-target
+      source: '1773476298375'
+      sourceHandle: source
+      target: '1773476381756'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: draft
+          max_length: 256
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: draft
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          - audio
+          - video
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          default: ''
+          hint: ''
+          label: file
+          max_length: 5
+          options: []
+          placeholder: ''
+          required: true
+          type: file-list
+          variable: user_file
+        - default: ''
+          hint: ''
+          label: voice
+          max_length: 2048
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: voice_and_tone
+        - default: ''
+          hint: ''
+          label: platform
+          max_length: 256
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: platform
+      height: 186
+      id: '1773281720379'
+      position:
+        x: 1.166528938029657
+        y: 94
+      positionAbsolute:
+        x: 1.166528938029657
+        y: 94
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        instruction: '# TASK DESCRIPTION
+
+          Parse platform names from input and output as a JSON array.
+
+
+          ## PROCESSING RULES
+
+          - Support multiple delimiters: commas, semicolons, spaces, line breaks,
+          "and", "&", "|", etc.
+
+          - Standardize common platform name variants (twitter/X→Twitter, insta→Instagram,
+          etc.)
+
+          - Remove duplicates and invalid entries
+
+          - Preserve unknown but reasonable platform names
+
+          - Preserve the original language of platform names
+
+
+          ## OUTPUT REQUIREMENTS
+
+          - Success: ["Platform1", "Platform2"]
+
+          - No platforms found: [No platforms identified. Please enter a valid platform
+          name.]
+
+
+          ## EXAMPLES
+
+          - Input: "twitter, linkedin" → ["Twitter", "LinkedIn"]
+
+          - Input: "x and insta" → ["Twitter", "Instagram"]
+
+          - Input: "invalid content" → [No platforms identified. Please enter a valid
+          platform name.]'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        parameters:
+        - description: The platform(s) for which the user wants to create tailored
+            content.
+          name: platform
+          required: true
+          type: array[string]
+        query:
+        - '1773281720379'
+        - platform
+        reasoning_mode: prompt
+        selected: false
+        title: 参数提取器
+        type: parameter-extractor
+        vision:
+          enabled: false
+      height: 87
+      id: '1773281791887'
+      position:
+        x: 342
+        y: 143
+      positionAbsolute:
+        x: 342
+        y: 143
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: a86ad067-ba27-437f-b62a-13c9e7960dcf
+            value: No platforms identified. Please enter a valid platform name.
+            varType: array[string]
+            variable_selector:
+            - '1773281791887'
+            - platform
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 123
+      id: '1773282143907'
+      position:
+        x: 683
+        y: 125
+      positionAbsolute:
+        x: 683
+        y: 125
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        extract_by:
+          enabled: false
+          serial: '1'
+        filter_by:
+          conditions:
+          - comparison_operator: in
+            key: type
+            value:
+            - image
+          enabled: true
+        item_var_type: file
+        limit:
+          enabled: false
+          size: 10
+        order_by:
+          enabled: false
+          key: ''
+          value: asc
+        selected: false
+        title: 列表操作
+        type: list-operator
+        var_type: array[file]
+        variable:
+        - '1773281720379'
+        - user_file
+      height: 91
+      id: '1773282311195'
+      position:
+        x: 1044
+        y: 0
+      positionAbsolute:
+        x: 1044
+        y: 0
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        extract_by:
+          enabled: false
+          serial: '1'
+        filter_by:
+          conditions:
+          - comparison_operator: in
+            key: type
+            value:
+            - document
+          enabled: true
+        item_var_type: file
+        limit:
+          enabled: false
+          size: 10
+        order_by:
+          enabled: false
+          key: ''
+          value: asc
+        selected: false
+        title: 列表操作 2
+        type: list-operator
+        var_type: array[file]
+        variable:
+        - '1773281720379'
+        - user_file
+      height: 91
+      id: '1773282321906'
+      position:
+        x: 1044
+        y: 177
+      positionAbsolute:
+        x: 1044
+        y: 177
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_array_file: true
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1773282321906'
+        - result
+      height: 103
+      id: '1773282478166'
+      position:
+        x: 1385
+        y: 171
+      positionAbsolute:
+        x: 1385
+        y: 171
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 9340f183-e138-401c-80c0-e8a68ae33439
+          role: system
+          text: '# ROLE & TASK
+
+            You are a content strategist. Analyze the provided draft and reference
+            materials (if any), then create a comprehensive content foundation for
+            multi-platform social media optimization.
+
+
+            # ANALYSIS PRINCIPLES
+
+            - Work exclusively with provided information—no external assumptions
+
+            - Focus on extraction, synthesis, and strategic interpretation
+
+            - Identify compelling and actionable elements
+
+            - Prepare insights adaptable across different platforms
+
+
+            # REQUIRED ANALYSIS
+
+            Deliver structured analysis with:
+
+
+            ## 1. CORE MESSAGE
+
+            - Central theme, purpose, objective
+
+            - Key value or benefit being communicated
+
+
+            ## 2. ESSENTIAL CONTENT ELEMENTS
+
+            - Primary topics, facts, statistics, data points
+
+            - Notable quotes, testimonials, key statements
+
+            - Features, benefits, characteristics mentioned
+
+            - Dates, locations, contextual details
+
+
+            ## 3. STRATEGIC INSIGHTS
+
+            - What makes content compelling/unique
+
+            - Emotional/rational appeals present
+
+            - Credibility factors, proof points
+
+            - Competitive advantages highlighted
+
+
+            ## 4. ENGAGEMENT OPPORTUNITIES
+
+            - Discussion points, questions emerging
+
+            - Calls-to-action, next steps suggested
+
+            - Interactive/participation opportunities
+
+            - Trending themes touched upon
+
+
+            ## 5. PLATFORM OPTIMIZATION FOUNDATION
+
+            - High-impact: Quick, shareable formats
+
+            - Professional: Business-focused discussions
+
+            - Community: Interaction and sharing
+
+            - Visual: Enhanced with strong visuals
+
+
+            ## 6. SUPPORTING DETAILS
+
+            - Metrics, numbers, quantifiable results
+
+            - Direct quotes, testimonials
+
+            - Technical details, specifications
+
+            - Background context available'
+        - id: 47c1f115-b67a-4b6e-b43b-6df2aff1ddcc
+          role: user
+          text: 'Draft: {{#1773281720379.draft#}}
+
+            Reference material: {{#1773282478166.text#}}'
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          configs:
+            detail: high
+            variable_selector:
+            - '1773282321906'
+            - result
+          enabled: true
+      height: 87
+      id: '1773282596415'
+      position:
+        x: 1747.8517493238278
+        y: 165
+      positionAbsolute:
+        x: 1747.8517493238278
+        y: 165
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        selected: false
+        template: "{% if llm1 %}\r\n{{ llm1 }}\r\n{% endif %}"
+        title: 模板转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1773476096676'
+          - output
+          value_type: array[string]
+          variable: llm1
+      height: 51
+      id: '1773299267586'
+      position:
+        x: 2580.7884125757223
+        y: 368.51749323827727
+      positionAbsolute:
+        x: 2580.7884125757223
+        y: 368.51749323827727
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        outputs:
+        - value_selector:
+          - '1773299267586'
+          - output
+          value_type: string
+          variable: output
+        selected: false
+        title: 输出 2
+        type: end
+      height: 87
+      id: '1773299312753'
+      position:
+        x: 2921.7884125757223
+        y: 350.51749323827727
+      positionAbsolute:
+        x: 2921.7884125757223
+        y: 350.51749323827727
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        error_handle_mode: terminated
+        flatten_output: true
+        height: 175
+        is_parallel: false
+        iterator_input_type: array[string]
+        iterator_selector:
+        - '1773281791887'
+        - platform
+        output_selector:
+        - '1773476381756'
+        - text
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1773476096676start
+        title: 迭代
+        type: iteration
+        width: 686
+      height: 175
+      id: '1773476096676'
+      position:
+        x: 2215.509188468323
+        y: 115
+      positionAbsolute:
+        x: 2215.509188468323
+        y: 115
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 686
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1773476096676start
+      parentId: '1773476096676'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 2239.509188468323
+        y: 183
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1773476096676'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 71c3e0d8-b4f6-437a-81e0-108e660ac8a7
+          role: system
+          text: '# ROLE & TASK
+
+            You are a social media expert. Analyze the platform and provide content
+            creation guidelines.
+
+
+            # ANALYSIS REQUIRED
+
+            For the given platform, provide:
+
+
+            ## 1. PLATFORM PROFILE
+
+            - Platform type and category
+
+            - Target audience characteristics
+
+
+            ## 2. CONTENT GUIDELINES
+
+            - Optimal content length (characters/words)
+
+            - Recommended tone (professional/casual/conversational)
+
+            - Formatting best practices (line breaks, emojis, etc.)
+
+
+            ## 3. ENGAGEMENT STRATEGY
+
+            - Hashtag recommendations (quantity and style)
+
+            - Call-to-action best practices
+
+            - Algorithm optimization tips
+
+
+            ## 4. TECHNICAL SPECS
+
+            - Character/word limits
+
+            - Visual content requirements
+
+            - Special formatting needs
+
+
+            ## 5. PLATFORM-SPECIFIC NOTES
+
+            - Unique features or recent changes
+
+            - Industry-specific considerations
+
+            - Community engagement approaches
+
+
+            # OUTPUT REQUIREMENTS
+
+            - For recognized platforms: Provide specific guidelines
+
+            - For unknown platforms: Base recommendations on similar platforms
+
+            - Focus on actionable, practical advice
+
+            - Be concise but comprehensive'
+        - id: 2bce0044-9e1a-460a-b851-e47a85fd7494
+          role: user
+          text: 'Platform: {{#1773476096676.item#}}'
+        selected: false
+        title: LLM 4
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1773476298375'
+      parentId: '1773476096676'
+      position:
+        x: 128
+        y: 68
+      positionAbsolute:
+        x: 2343.509188468323
+        y: 183
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1773476096676'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 186c6387-124e-48e0-87d3-9e86a6467037
+          role: system
+          text: '# ROLE & TASK
+
+            You are an expert social media content creator. Generate publication-ready
+            content that matches platform guidelines, incorporates source information,
+            and follows specified voice/tone and language requirements.
+
+
+            # LANGUAGE REQUIREMENT
+
+            - Generate ALL content exclusively in the target language specified in
+            the user message. You MUST write the entire post in that language, regardless
+            of the language of any source materials.
+
+            - No mixing of languages whatsoever
+
+            - Adapt platform terminology to the target language
+
+
+            # CONTENT REQUIREMENTS
+
+            - Follow platform guidelines exactly (format, length, tone, hashtags)
+
+            - Integrate source information effectively (key messages, data, value
+            props)
+
+            - Apply voice & tone consistently (if provided)
+
+            - Optimize for platform-specific engagement
+
+            - Ensure cultural appropriateness for the specified language
+
+
+            # OUTPUT FORMAT
+
+            - Generate ONLY the final social media post content. No explanations or
+            meta-commentary. Content must be immediately copy-paste ready.
+
+            - Maximum heading level: ## (H2) - never use # (H1)
+
+            - No horizontal dividers: avoid ---
+
+
+            # QUALITY CHECKLIST
+
+            ✅ Platform guidelines followed
+
+            ✅ Source information integrated
+
+            ✅ Voice/tone consistent (when provided)
+
+            ✅ Language consistency maintained
+
+            ✅ Engagement optimized
+
+            ✅ Publication ready'
+        - id: f12deb3a-51da-4236-b1eb-abe07986b917
+          role: user
+          text: 'Platform Name: {{#1773476096676.item#}}
+
+            Platform Guidelines: {{#1773476298375.text#}}
+
+            Source Information: {{#1773281720379.user_file#}}
+
+            Voice & Tone: {{#1773281720379.voice_and_tone#}}'
+        selected: false
+        title: LLM 5
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1773476381756'
+      parentId: '1773476096676'
+      position:
+        x: 429
+        y: 68
+      positionAbsolute:
+        x: 2644.509188468323
+        y: 183
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    viewport:
+      x: -738.7812444610681
+      y: 304.9294286487902
+      zoom: 0.42862198676258795
+  rag_pipeline_variables: []
